@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+    {% else %}
+        <div class="d-flex justify-content-center mt-5" style="width: 65%;">
+            <div>
+                <p>You are not logged in</p>
+                <a href="{% url 'login' %}">Log In</a>
+                
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

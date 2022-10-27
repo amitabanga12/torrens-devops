@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Devops{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body style="height: 100vh; max-height: 100vh;">
+        <header style="height: 77px;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light h-100">
+                <a class="navbar-brand" href="#"><img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Devops-toolchain.svg/1280px-Devops-toolchain.svg.png" width="100"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main style="height: calc(100% - 77px);">
+            <section class="h-100">
+                <div class="container-fluid h-100">
+                    <div class="row d-flex h-100 w-100">
+                        <div class="col-md-3 col-lg-3 col-xl-3 p-0">
+                            {% if user.is_authenticated %}
+                                <div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" style="width: 280px;">
+                                    <div class="d-flex justify-content-left border-bottom mb-2">Hi {{ user.username }}!</div>
+                                    <ul class="nav nav-pills flex-column mb-auto">
+                                        <li class="nav-item">
+                                            <a href="?m=process-files" class="nav-link active" aria-current="page">
+                                                <i class="fa fa-files-o" aria-hidden="true"></i>
+                                                Process Files
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="?m=add-user" class="nav-link link-dark">
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                                Add User
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="?m=list-users" class="nav-link link-dark">
+                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                List Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="?m=user-profile" class="nav-link link-dark">
+                                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                                User Profile
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <div class="dropdown">
+                                        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                                            <li><a class="dropdown-item" href="?m=process-files">Process Files</a><li>
+                                            <li><a class="dropdown-item" href="?m=add-user">Add User</a></li>
+                                            <li><a class="dropdown-item" href="?m=list-users">List Users</a></li>
+                                            <li><a class="dropdown-item" href="?m=user-profile">User Profile</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+    </body>
+</html>

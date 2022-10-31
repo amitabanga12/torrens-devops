@@ -29,5 +29,7 @@ urlpatterns = [
     path("file/", include('processfiles.urls')),
     # add or show users
     path("users/", include('usermanager.urls')),
-        
+    path("profile/", include('userprofile.urls')),
+    # process files
+    path("file/", include('processfiles.urls')),
 ]

@@ -22,4 +22,6 @@ urlpatterns = [
     path("userauth/", include('userauth.urls')),
     path("", TemplateView.as_view(template_name='home.html'), name='home'),
     path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
+    path("users/", include('usermanager.urls')),
+    
 ]

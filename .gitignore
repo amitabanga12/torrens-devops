@@ -1,0 +1,15 @@
+*.log
+*.pot
+*.pyc
+*.py[cod]
+
+*.sqlite3
+migrations/
+db.sqlite3
+
+__pycache__/
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
+devops-a2/devops_project/devops_project/__pycache__/settings.cpython-310.pyc
+devops-a2/devops_project/devops_project/__pycache__/urls.cpython-310.pyc

@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-
+            <p>{{ request.path }}</p>
     {% else %}
         <div class="d-flex justify-content-center mt-5" style="width: 65%;">
             <div>

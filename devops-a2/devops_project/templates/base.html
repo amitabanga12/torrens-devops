@@ -41,7 +41,7 @@
                                     <div class="d-flex justify-content-left border-bottom mb-2">Hi {{ user.username }}!</div>
                                     <ul class="nav nav-pills flex-column mb-auto">
                                         <li class="nav-item">
-                                            <a href="?m=process-files" class="nav-link active" aria-current="page">
+                                            <a href="/file/process" class="nav-link {% if request.path == '/file/process/' or request.path == '/file/load/' %}active{% endif %}" aria-current="page">
                                                 <i class="fa fa-files-o" aria-hidden="true"></i>
                                                 Process Files
                                             </a>
@@ -68,7 +68,7 @@
                                     <hr>
                                     <div class="dropdown">
                                         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                                            <li><a class="dropdown-item" href="?m=process-files">Process Files</a><li>
+                                            <li><a class="dropdown-item" href="/file/process/">Process Files</a><li>
                                             <li><a class="dropdown-item" href="?m=add-user">Add User</a></li>
                                             <li><a class="dropdown-item" href="?m=list-users">List Users</a></li>
                                             <li><a class="dropdown-item" href="/profile/view">User Profile</a></li>

@@ -18,9 +18,14 @@ from django.views.generic.base import TemplateView
 from django.urls import path, include
 
 urlpatterns = [
+    # admin urls
     path('admin/', admin.site.urls),
+    # authenticate urls
     path("userauth/", include('userauth.urls')),
+    # home urls
     path("", TemplateView.as_view(template_name='home.html'), name='home'),
     path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
     path("profile/", include('userprofile.urls')),
+    # process files
+    path("file/", include('processfiles.urls')),
 ]

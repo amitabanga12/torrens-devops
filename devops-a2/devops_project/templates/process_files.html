@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script>
+        $(document).ready(function () {
+            $('#fileTable').DataTable({
+                
+            });
+        });
+    </script>
+    {% if user.is_authenticated %}
+        <form action="/file/load/" method="post" enctype="multipart/form-data">
+            <label for="csv-file-input">Select file:</label>
+            <div class="form-group row border-bottom pb-2">
+                <div class="col">
+                    <input type="file" class="form-control" name="csv-file-input" name="csv-file-id" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                </div>
+                <div class="col">
+                    <input type="submit" class="form-control btn btn-dark" id="csv-file-submit" value="Submit">
+                </div>
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table id="fileTable" class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        {% for heading in tableHead %}
+                            <th>
+                                <span>{{heading}}</span>
+                            </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in df %}
+                        <tr>
+                            {% for key, value in data.items %}
+                            <td>
+                                <span data-title="{{key}}">{{value}}</span>        
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="text text-danger alert-dismissible fade show" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="d-flex justify-content-center mt-5" style="width: 65%;">
+            <div>
+                <p>You are not logged in</p>
+                <a href="{% url 'login' %}">Log In</a>
+                
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

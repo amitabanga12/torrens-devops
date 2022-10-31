@@ -59,7 +59,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="?m=user-profile" class="nav-link link-dark">
+                                            <a href="/profile/view" class="nav-link link-dark {% if request.path == '/profile/view/' %}active{% endif %}">
                                                 <i class="fa fa-user-circle" aria-hidden="true"></i>
                                                 User Profile
                                             </a>
@@ -71,7 +71,7 @@
                                             <li><a class="dropdown-item" href="/file/process/">Process Files</a><li>
                                             <li><a class="dropdown-item" href="?m=add-user">Add User</a></li>
                                             <li><a class="dropdown-item" href="?m=list-users">List Users</a></li>
-                                            <li><a class="dropdown-item" href="?m=user-profile">User Profile</a></li>
+                                            <li><a class="dropdown-item" href="/profile/view">User Profile</a></li>
                                             <li><hr class="dropdown-divider"></li>
                                             <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
                                         </ul>

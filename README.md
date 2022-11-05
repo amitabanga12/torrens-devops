@@ -1,6 +1,6 @@
 # Django Application for processing csv files
 
-This project processed csv files. It reads csv files and enable user to edit or delete rows from large csv files. It also enables user to search records from csv files by filtering rows which makes it easier for processing files.
+This project processed csv files. It reads csv files. It also enables user to search records from csv files by filtering rows which makes it easier for processing files.
 
 To login to the application, use following credentials for superuser:
 ``` 

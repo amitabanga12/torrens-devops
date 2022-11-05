@@ -1,3 +1,4 @@
 django
 pandas
 numpy
+parameterized==0.8.1

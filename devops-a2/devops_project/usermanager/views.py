@@ -14,20 +14,24 @@ def add_user(request):
             email = request.POST['email']
             password = request.POST['password']
             confirmpassword = request.POST['confirmpassword']
-            if username and email and password and confirmpassword and first_name and last_name and password == confirmpassword:
-                user, success = User.objects.get_or_create(username=username,
-                                        first_name=first_name,
-                                        last_name=last_name,             
-                                        email=email,
-                                        password=password,
-                                        is_active=True,
-                                        is_staff=True,
-                                        is_superuser=False)
-                if success:
-                    user.set_password(password)
-                    user.save()
-                    # user successfully created
-                    messages.success(request,"user successfully created")
+            if username and email and password and confirmpassword and first_name and password == confirmpassword and username != "" and email != "" and password != "" and confirmpassword != "":
+                if not User.objects.filter(username=username).exists() and not User.objects.filter(email=email).exists():
+                    user, success = User.objects.get_or_create(username=username,
+                                            first_name=first_name,
+                                            last_name=last_name,             
+                                            email=email,
+                                            password=password,
+                                            is_active=True,
+                                            is_staff=True,
+                                            is_superuser=False)
+                    if success:
+                        user.set_password(password)
+                        user.save()
+                        # user successfully created
+                        messages.success(request,"user successfully created")
+                    else:
+                        # user already exists
+                        messages.error(request,"user already exists")
                 else:
                     # user already exists
                     messages.error(request,"user already exists")

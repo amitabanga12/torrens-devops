@@ -19,7 +19,6 @@ password: Banga@987
 1. Python 3.10.6
 2. Pip 22.3
 3. Web browser to test the application
-4. Internet
 
 # To Run the application
 

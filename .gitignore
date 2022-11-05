@@ -13,3 +13,4 @@ __pycache__/
 */__pycache__/
 devops-a2/devops_project/devops_project/__pycache__/settings.cpython-310.pyc
 devops-a2/devops_project/devops_project/__pycache__/urls.cpython-310.pyc
+python_venv/

@@ -22,7 +22,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh 'python /devops-a2/devops_project/manage.py jenkins --enable-coverage ./devops-a2/devops_project/'
+                sh 'python devops-a2/devops_project/manage.py jenkins --enable-coverage ./devops-a2/devops_project/'
             }
             post {
                 always {

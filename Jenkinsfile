@@ -14,8 +14,8 @@ pipeline {
         }
         stage('set-up') {
             steps {
-                sh 'python3 -m venv python_venv'
-                sh 'source ./python_venv/bin/activate'
+                sh 'python3 -m venv venv'
+                sh 'source venv/bin/activate'
                 sh 'pip install --upgrade pip'
                 sh 'pip install -r requirements.txt'
             }

@@ -2,3 +2,8 @@ django
 pandas
 numpy
 parameterized==0.8.1
+
+django-jenkins
+pep8
+pyflakes
+coverage==4.3.4

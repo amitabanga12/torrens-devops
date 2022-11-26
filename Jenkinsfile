@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image "python:3.10.6-slim"
+            image "python:3.11.0-bullseye"
             args "--user root --privileged"
         }
     }

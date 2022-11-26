@@ -17,8 +17,8 @@ class UserManagerTest(TestCase):
         ("Test Case 1 - create new user", { "firstname": "Staff", "lastname": "User", "username": "staffuser", "email": "newstaffuser@django.com", "password": "super@123", "confirmpassword":  "super@123" }, "user successfully created"),
         ("Test Case 2 - create new user - without last name", { "firstname": "Steve", "lastname": "", "username": "steve", "email": "steve@django.com", "password": "steve@123", "confirmpassword":  "steve@123" }, "user successfully created"),
         ("Test Case 3 - existing username", { "firstname": "Anna", "lastname": "Steve", "username": "guest", "email": "anna@django.com", "password": "super@123", "confirmpassword":  "super@123" },"user already exists"),
-        ("Test Case 4 - existing email", { "firstname": "Ankit", "lastname": "Mahajan", "username": "ankit", "email": "guest@django.com", "password": "super@123", "confirmpassword":  "super@123" },"user successfully created"),
-        ("Test Case 5 - password and confirm password doesnot match", { "firstname": "Shruti", "lastname": "Sharma", "username": "staffuser", "email": "newstaffuser@django.com", "password": "super@123", "confirmpassword":  "super@1234" }, "user successfully created"),
+        ("Test Case 4 - existing email", { "firstname": "Ankit", "lastname": "Mahajan", "username": "ankit", "email": "guest@django.com", "password": "super@123", "confirmpassword":  "super@123" },"user already exists"),
+        ("Test Case 5 - password and confirm password doesnot match", { "firstname": "Shruti", "lastname": "Sharma", "username": "staffuser", "email": "newstaffuser@django.com", "password": "super@123", "confirmpassword":  "super@1234" }, "invalid input"),
 
     ])
     def test_add_user(self, name, input, expected):
